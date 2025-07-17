@@ -1,7 +1,4 @@
 # PyShell
-
-## Overview
-
 PyShell is a lightweight command-line shell implemented in Python. It provides basic shell functionalities including built-in commands, tab-based auto-completion, I/O redirection, and execution of external programs.
 
 ## Features
@@ -12,28 +9,9 @@ PyShell is a lightweight command-line shell implemented in Python. It provides b
 * **External Commands**: Executes any executable available in the system `PATH`.
 * **Error Handling**: Graceful handling of invalid inputs and file-related errors.
 
-## Requirements
-
-* Python 3.6 or higher
-* Unix-like operating system (Linux, macOS) or Windows with appropriate ANSI support
-
-## Installation
-
-1. Clone the repository or download the `main1.py` file.
-2. Ensure the file has executable permissions:
-
-   ```bash
-   chmod +x main1.py
-   ```
-3. Run the shell:
-
-   ```bash
-   ./main1.py
-   ```
-
 ## Usage
 
-When launched, PyShell displays the current working directory as a prompt. Enter commands as you would in a standard shell.
+When executed, PyShell displays the current working directory as a prompt. Enter commands as you would in a standard shell.
 
 ```bash
 /home/user $ ls
@@ -47,6 +25,16 @@ Documents  Downloads  main1.py
 Documents  Downloads  example.txt  main1.py
 /home/user $ exit 0
 ```
+## Core Modules Used
+
+| Module      | Purpose                                                                 |
+|-------------|-------------------------------------------------------------------------|
+| `sys`, `os` | Interact with the operating system, manipulate file paths, environment variables, and input/output streams. |
+| `shutil`    | Perform high-level file operations, such as copying files and locating executables. |
+| `subprocess`| Spawn and manage system processes, allowing execution of external commands. |
+| `shlex`     | Parse shell-style syntax, including support for quoting and escaping characters. |
+| `readline`  | Enable interactive features like command history navigation and tab-completion. |
+| `contextlib`| Simplify resource management and redirection cleanup with context managers. |
 
 ## Built-in Commands
 
@@ -75,17 +63,9 @@ Documents  Downloads  example.txt  main1.py
 * Example:
 
   ```bash
-  ls > files.txt      # Save listing to files.txt
-  calc 1 / 0 2> error.log # Log division error to error.log
+  ls > files.txt            # Save listing to files.txt
+  calc 1 / 0 2> error.log   # Log division error to error.log
   ```
-
-## External Commands
-
-Any executable available in the system `PATH` can be run directly. Arguments and redirection work as expected.
-
-```bash
-/home/user $ grep "pattern" file.txt > results.txt
-```
 
 ## Error Handling
 
@@ -95,11 +75,3 @@ PyShell prints descriptive error messages for:
 * Missing or extra arguments
 * File not found or permission issues
 * Division or modulo by zero in `calc`
-
-## Contributing
-
-Contributions, bug reports, and feature requests are welcome. Please fork the repository and submit a pull request.
-
-## License
-
-This project is released under the MIT License. See the `LICENSE` file for details.
